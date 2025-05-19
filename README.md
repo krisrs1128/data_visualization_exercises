@@ -9,13 +9,20 @@ experience working through exercise books on analysis and probability during my
 undergraduate. Even with data visualization, the best way to learn is through
 practice.
 
-If you are an instructor, feel free to re-use any of the exercises here -- the
-underlying `.Rmd` source code is in the `source/` subfolder. I can also share my
-solutions (though, be forewarned that these are quite scattered).
+|:--:| 
+| ![A scatterplot of taxi trajectories in Porto, Portugal, illustrating the visualization of spatial vector data.](source/figure/porto_traffic.png) |
+| An example solution to the [Taxi Trips] exercise. |
 
 I'll keep this repository updated as I write new problems in new semesters.
 You're also welcome to suggest or contribute new problems through email (see
-below) or repository Issue.
+below) or a [repository
+issue](https://github.com/krisrs1128/data_visualization_exercises/issues).  If
+you are an instructor, feel free to re-use any of the exercises here -- the
+underlying `.Rmd` source code is in the `source/` subfolder. I can also share my
+solutions (though, be forewarned that these are quite scattered).
+
+And to any former students reading this -- thank you for all your effort! Your
+work made this exercise worthwhile.
 
 ### Contact
 
