@@ -9,7 +9,7 @@ experience working through exercise books on analysis and probability during my
 undergraduate. Even with data visualization, the best way to learn is through
 practice.
 
- <img src="https://raw.githubusercontent.com/krisrs1128/data_visualization_exercises/refs/heads/main/source/figure/porto_traffic.png" width=500 alt='A scatterplot of taxi trajectories in Porto, Portugal, illustrating the visualization of spatial vector data.'></img> |
+ <img src="https://raw.githubusercontent.com/krisrs1128/data_visualization_exercises/refs/heads/main/source/figure/porto_traffic.png" width=500 alt='A scatterplot of taxi trajectories in Porto, Portugal, illustrating the visualization of spatial vector data.'/> |
 |:--:| 
 | *An example solution to the [Taxi Trips] exercise.* |
 
