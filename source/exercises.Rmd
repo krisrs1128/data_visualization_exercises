@@ -215,20 +215,16 @@ visualizing the diamonds dataset below are TRUE or FALSE. [0.75 points each]
     ```
     
     a. TRUE FALSE To visualize the relationship between the price and depth
-    variables, you can use:\newline $~$ \hspace{10mm} `ggplot(diamonds) +
-    geom_point(aes(price, depth))`
+    variables, you can use:\newline $~$ \hspace{10mm} `ggplot(diamonds) + geom_point(aes(price, depth))`
     
     b. TRUE FALSE To visualize the relationship between x and caret variables with
-    cut encoded by color, you can use:\newline $~$ \hspace{10mm} `ggplot(diamonds)
-    + geom_point(aes(price, depth)) + scale_color_manual(cut)`.
+    cut encoded by color, you can use:\newline $~$ \hspace{10mm} `ggplot(diamonds) + geom_point(aes(price, depth)) + scale_color_manual(cut)`.
 
     c. TRUE FALSE A scatterplot of `x` vs. `caret` faceted by `color` will have
     53,940 points in each facet.
     
     d. TRUE FALSE You built a plot of price against caret faceted by
-    clarity:\newline $~$ \hspace{10mm} `ggplot(diamonds) + geom_point(aes(caret,
-    price)) + facet_wrap(~ clarity)`.\newline To sort facets by price, you could
-    modify the `geom_point` layer to `geom_point(aes(carat, reorder(price)))`.
+    clarity:\newline $~$ \hspace{10mm} `ggplot(diamonds) + geom_point(aes(caret, price)) + facet_wrap(~ clarity)`.\newline To sort facets by price, you could modify the `geom_point` layer to `geom_point(aes(carat, reorder(price)))`.
   
 1. [Multipanel True/False] Circle all the statements below that are true about
 small-multiple and compound figures. Assume that the `ggplot2`, `ggridges`, and
