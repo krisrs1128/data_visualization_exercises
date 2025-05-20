@@ -5,9 +5,9 @@ These are the problems that we use for homework/in-class practice in STAT
 experience in applying visualization tools (ggplot2, shiny, d3) to problems
 common in data science (e.g., visualizing temporal or high-dimensional data --
 see the table of contents in the PDF). The inspiration for compiling this came
-from my experience working through exercise books on analysis and probability
-during my undergraduate. Even with data visualization, the best way to learn is
-through practice.
+from exercise books on analysis and probability that are common in math
+coursework. Even with data visualization, the best way to learn is through
+practice.
 
  <img src="source/figure/porto_traffic.png" width=500 alt='A scatterplot of taxi trajectories in Porto, Portugal, illustrating the visualization of spatial vector data.'/> |
 |:--:| 
