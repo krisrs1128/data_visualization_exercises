@@ -26,7 +26,8 @@ motivation made this compilation exercise worthwhile.
 
 ### Contact
 
-These exercises have been compiled over several years, and I hadn't originally
-planned to share them beyond my classes. If you notice that I haven't properly
-attributed a dataset that you gathered or otherwise find any issues, don't
-hesitate to [reach out](https://measurement-and-microbes.org/_includes/contact).
+These exercises were written on and off over several years, and I hadn't
+originally planned to share them beyond my classes. If you notice that I haven't
+properly attributed a dataset that you gathered or otherwise find any issues,
+don't hesitate to [reach
+out](https://measurement-and-microbes.org/_includes/contact).
