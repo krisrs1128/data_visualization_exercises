@@ -21,6 +21,12 @@ you are an instructor, feel free to re-use any of the exercises here -- the
 underlying `.Rmd` source code is in the `source/` subfolder. I can also share my
 solutions (though, be forewarned that these are quite scattered).
 
+If you're curious about our other learning materials, you can check out:
+
+* [Course Notes I](https://krisrs1128.github.io/stat479/)
+* [Course Notes II](https://krisrs1128.github.io/stat992_f23/website/docs/)
+* [Recordings](https://mediaspace.wisc.edu/channel/STAT+479%3A+Statistical+Data+Visualization/197911113)
+
 And to any former students reading this -- thank you for all your effort! Your
 motivation made this compilation exercise worthwhile.
 
