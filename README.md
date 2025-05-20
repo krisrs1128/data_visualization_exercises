@@ -29,7 +29,7 @@ If you're curious about our other learning materials, you can check out:
 * [Recoredings II](https://www.youtube.com/playlist?list=PLhax_7Mawcfk1GEl_vOg7cE_vtRTsqMWw)
 
 And to any former students reading this -- thank you for all your effort! Your
-motivation made this compilation exercise worthwhile.
+motivation made writing all this worthwhile.
 
 ### Contact
 
