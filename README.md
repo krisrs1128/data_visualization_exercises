@@ -25,7 +25,8 @@ If you're curious about our other learning materials, you can check out:
 
 * [Course Notes I](https://krisrs1128.github.io/stat479/)
 * [Course Notes II](https://krisrs1128.github.io/stat992_f23/website/docs/)
-* [Recordings](https://mediaspace.wisc.edu/channel/STAT+479%3A+Statistical+Data+Visualization/197911113)
+* [Recordings I](https://mediaspace.wisc.edu/channel/STAT+479%3A+Statistical+Data+Visualization/197911113)
+* [Recoredings II](https://www.youtube.com/playlist?list=PLhax_7Mawcfk1GEl_vOg7cE_vtRTsqMWw)
 
 And to any former students reading this -- thank you for all your effort! Your
 motivation made this compilation exercise worthwhile.
