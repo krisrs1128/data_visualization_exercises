@@ -1346,6 +1346,23 @@ p1 / (p2 + p3)
 
     c. List one consideration that can (in general) improve readability
     for either compound or faceted figures.
+
+1. [Open-Ended Compound Visualization] Choose a dataset you are interested in
+visualizing. You may choose any dataset, including those from your personal
+studies/outside knowledge, or pick one from these suggested collections: [TidyTuesday](https://github.com/rfordatascience/tidytuesday#datasets), [Kaggle](https://www.kaggle.com/datasets), [Google Dataset Search](https://datasetsearch.research.google.com/), [AWS Data Registry](https://registry.opendata.aws/), [Wisconsin DNR](https://data-wi-dnr.opendata.arcgis.com/), [IPUMS Census Data](https://www.ipums.org/), [538](https://github.com/fivethirtyeight/data/)
+
+    You can also run `data()` in your R console to see all of the built-in datasets in the packages that you have loaded.
+
+    **With your chosen dataset, use `patchwork` to create a compound figure with at least three individual visualizations.**
+
+    This compound figure should:
+
+    - Have a single overall guiding question or purpose, rather than just being three (or more) distinct, unconnected visualizations one can conveniently make with a given dataset
+    - Use consistent encodings and collected legends where appropriate
+    - Have subtle but visible annotation that would allow you to quickly reference the individual visualizations
+
+    The goal of here is to create something you would be proud to show someone
+    outside of this class.
     
 1. [Faceting rules-of-thumb] Circle all the true statements for compound and
 faceted figures.
