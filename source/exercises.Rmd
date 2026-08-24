@@ -58,7 +58,7 @@ officially recognized categories of displacement. Give an example of a question
 that this visualization is designed to answer. Evaluate the visualization using
 the hierarchy of encodings.
 
-```{r, fig.cap=""}
+```{r, fig.cap="Patterns of displacement, from the Migration Data Portal.", out.width=250, fig.align="center", echo=FALSE}
 include_graphics("figure/Displacement trends-GMDAC-web_0.jpg")
 ```
 
@@ -1785,19 +1785,19 @@ functionality (just leave the server empty).
 
     a. An input to select a date range.
 
-    ```{r, echo = FALSE}
+    ```{r, echo = FALSE, out.width=200, fig.align="center"}
     include_graphics("figure/date_range.png")
     ```
 
     b. A yes / no toggle that uses an icon for the options.
 
-    ```{r, echo = FALSE}
+    ```{r, echo = FALSE, out.width=200, fig.align="center"}
     include_graphics("figure/icon.png")
     ```
 
     c. A slider that can be used to select a range of values.
 
-    ```{r, echo = FALSE}
+    ```{r, echo = FALSE, out.width=200, fig.align="center"}
     include_graphics("figure/slider_range.png")
     ```
 
