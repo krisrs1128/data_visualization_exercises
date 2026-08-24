@@ -706,16 +706,18 @@ through the process of building this visualization.
 
 1. [California Wildfire Alternatives] Below, we provide three approaches to
 visualizing wildfire severity in the California fires dataset.
+
     ```{r fires-alternative}
     fires <- read_csv("https://uwmadison.box.com/shared/static/k5vvekf1bhh9e16qb9s66owygc70t7dm.csv") |>
       select(Name, Counties, year, day_of_year, AcresBurned, MajorIncident)
     head(fires, 3)
     ```
-  For each approach, describe,
-    * One type of visual comparison for which the visualization is well-suited.
-    * One type of visual comparison for which the visualization is poorly-suited.
 
-  Make sure to explain your reasoning and refer to concepts from the readings.
+    For each approach, describe,
+      * One type of visual comparison for which the visualization is well-suited.
+      * One type of visual comparison for which the visualization is poorly-suited.
+
+    Make sure to explain your reasoning and refer to concepts from the readings.
 
     a. Approach 1
     ```{r fires-approach-1, echo = FALSE, fig.width = 12, fig.height = 6, out.width = "0.65\\textwidth"}
@@ -1033,7 +1035,7 @@ several groups of birds. Note that only the first few rows are shown,
 
 1. [Bookstore Reshaping] The dataframe called `df` contains the habits of
 readers in a hypothetical reading group. The first few rows of `df` are shown
-below. The problems below ask you to **write R code** which manipulates `df` to
+below. The problems below ask you to write code which manipulates `df` to
 answer basic questions. For each part, a few example rows of the final output
 are given. Each part is independent of the others.
 
@@ -1327,11 +1329,13 @@ then then averages each variable for each day (1 - 365) in the year.
 1. [Pokemon View Composition] This problem revisits the pokemon dataset and asks
 you to combine complementary visualizations into a single display.
 
-    a. What is the difference between faceting and compound figures?
+    a. Describe the difference between faceting and compound figures.
 
-    b. The figure below shows three views of the pokemon dataset.  Provide code
-    to recreate it. You do not need to customize the axis titles or themes but
-    should include the panel titles (i), (ii), and (iii).
+    b. The figure below shows three views of the pokemon dataset. Create a
+    version of it with the same graphical encodings and panel arrangement, but
+    customize the marks, their appearances, or the panel titles in a way that
+    you think improves readability. Justify your choices.
+
     ```{r}
 pokemon <- read_csv("https://uwmadison.box.com/shared/static/hf5cmx3ew3ch0v6t0c2x56838er1lt2c.csv")
 head(pokemon, 3)
@@ -1365,8 +1369,14 @@ p3 <- ggplot(pokemon) +
 p1 / (p2 + p3)
     ```
 
-    c. List one consideration that can (in general) improve readability
-    for either compound or faceted figures.
+    c. What is a consideration that can potentially improve readability for
+    either compound or faceted figures? When is it necessary to apply, and when
+    can the recommendation be safely ignored?
+
+    d. Find a real-world figure applying multiview composition, for example from
+    a news article, your other course notes, or a research talk.  Evaluate the
+    underlying design decisions and how they impact the visualization's
+    effectiveness.
 
 1. [Open-Ended Compound Visualization] Choose a dataset you are interested in
 visualizing. You may choose any dataset, including those from your personal
@@ -1532,7 +1542,8 @@ the data, stored in a data frame called `df`, are shown below.
     1. One type of visual comparison for which the visualization is well-suited.
     2. One type of visual comparison for which the visualization is poorly-suited.
 
-    In each part, make sure to explain your reasoning.
+    In each part, make sure to explain your reasoning using the concepts
+    introduced in class.
 
     a. Approach 1
     ```{r antibiotics-vis-1, echo = FALSE, out.width = "0.55\\textwidth"}
@@ -1576,8 +1587,7 @@ the data, stored in a data frame called `df`, are shown below.
         scale_color_brewer(palette = "Set2")
     ```
 
-    d. **Write R code** that could be used to make one of the three
-    visualizations above.
+    d. Implement one of the three visualizations above.
 
 1. [Visualization and LLMs] This course generally avoids using large language
 models (LLMs) when teaching new material, because they can sometimes be a
@@ -1972,12 +1982,63 @@ fires in the dotplot. The first few rows of the dataset are also shown.
     d. Sketch the reactivity graph of your final application. Make sure
     to distinguish node types.
 
-1. [Olympics Interactive App] The code below sets up a Shiny app for
+1. [Olympics Interactive App] The code below sets up a mosaic app for
 interactively visualizing athlete weight and heights in the 2012 London
 Olympics. We would like to have an interactive scatterplot of `Weight` vs.
 `Height, cm` that updates which points (athletes) are highlighted depending on
 which sports have been selected by a dropdown menu. Code for generating the
-scatterplot is provided in the function `scatterplot`.
+scatterplot is provided in the function `olympics_scatter`.
+
+     ```{r, eval = FALSE}
+     import * as vg from "npm:@uwdata/vgplot";
+
+     await vg.coordinator().exec([
+       vg.loadCSV("olympics", "https://uwmadison.box.com/shared/static/rzw8h2x6dp5693gdbpgxaf2koqijo12l.csv")
+     ]);
+
+     // Scatterplot with highlighted points.
+     olympics_scatter = (sel) => vg.plot(
+       vg.dot(
+         vg.from("olympics"),
+         {x: "Weight", y: "Height, cm", fillOpacity: 0.5}
+       ),
+       vg.highlight({by: sel, fillOpacity: 0.05}),
+       vg.width(500),
+       vg.height(400)
+     );
+
+     // fill this in...
+     ```
+
+    a. Provide code which would allow the scatterplot to update the highlighted
+    athletes depending on the currently selected sport. Your answer should
+    define a `Selection` and use that to update calls to `olympics_scatter`.
+
+    b. We have been asked to also print a table of the selected athletes.
+    Assume the final layout has the form,
+
+     ```{r, eval = FALSE}
+     vg.vconcat(
+       sport_menu,
+       olympics_scatter($sport),
+       vg.table({
+         from: "olympics",
+         filterBy: $sport,
+         columns: ["Name", "Country", "Sport", "Weight", "Height, cm"]
+       })
+     )
+     ```
+
+    Describe changes to your solution to (a) to meet the new requirements. Can
+    mosaic apply the same query for both the scatterplot and the table? Why or
+    why not?
+
+1. [Shiny Olympics] The code below sets up a Shiny app for interactively
+visualizing athlete weight and heights in the 2012 London Olympics. We would
+like to have an interactive scatterplot of `Weight` vs.  `Height, cm` that
+updates which points (athletes) are highlighted depending on which sports have
+been selected by a dropdown menu. Code for generating the scatterplot is
+provided in the function `scatterplot`.
 
     ```{r}
     library(shiny)
