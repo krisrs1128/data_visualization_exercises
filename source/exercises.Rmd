@@ -12,8 +12,6 @@ linkcolor: red
 urlcolor: red
 ---
 
-<!-- 30 + 63 + 22 + 38 + 14 + 24 + 10 + 3 problems -->
-
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(knitr)
 library(tidyverse)
@@ -1384,7 +1382,7 @@ studies/outside knowledge, or pick one from these suggested collections: [TidyTu
 
     You can also run `data()` in your R console to see all of the built-in datasets in the packages that you have loaded.
 
-    **With your chosen dataset, use `patchwork` to create a compound figure with at least three individual visualizations.**
+    **With your chosen dataset, create a compound figure with at least three individual visualizations.**
 
     This compound figure should:
 
@@ -1990,8 +1988,6 @@ which sports have been selected by a dropdown menu. Code for generating the
 scatterplot is provided in the function `olympics_scatter`.
 
      ```{r, eval = FALSE}
-     import * as vg from "npm:@uwdata/vgplot";
-
      await vg.coordinator().exec([
        vg.loadCSV("olympics", "https://uwmadison.box.com/shared/static/rzw8h2x6dp5693gdbpgxaf2koqijo12l.csv")
      ]);
@@ -2159,6 +2155,61 @@ it respond to user interactions? What is an advantage of this approach?
 
     d. How would you approach an implementation to (c)? You do not need
 to provide all the code, but break your approach into a precise steps.
+
+1. [NYC Rentals Mosaic] In this problem, we'll create a visualization to
+dynamically query a [dataset](https://go.wisc.edu/660h94) of Airbnb rentals in
+Manhattan in 2019. Download the file into `data` folder relative to your quarto
+notebook so that you can refer to the data using the database below.
+
+````
+```{ojs}
+path = (p) => new URL(`data/${p}`, document.baseURI).href
+
+// setup the data coordinator
+vg = {
+    const vg = await import("https://cdn.jsdelivr.net/npm/@uwdata/vgplot@0.19.0/+esm");
+    const wasm = await vg.wasmConnector();
+    vg.coordinator().databaseConnector(wasm);
+    await vg.coordinator().exec([
+      vg.loadCSV("rentals", path("rentals.csv")),
+    ]);
+    return vg;
+}
+```
+````
+
+From here you can create a scatterplot of rental locations shaded in by their rental type.
+
+````
+```{ojs}
+scatter = vg.plot(
+  vg.dot(
+    vg.from("rentals"),
+    { x: "longitude", y: "latitude", fill: "room_type", r: 1.5 }
+  ),
+  vg.colorScheme("set2"),
+  vg.colorDomain(vg.Fixed),
+  vg.xDomain(vg.Fixed),
+  vg.yDomain(vg.Fixed),
+  vg.aspectRatio(1),
+  vg.width(200)
+)
+
+scatter
+```
+````
+
+    a. Skim the raw CSV data.  Your friend is interested in booking an airbnb in
+    Manhattan but aren't sure about differences in prices across neighborhoods
+    or rental types.  Propose a form of interactivity that might help them make
+    the relevant visual comparisons. Where does your proposal fall in the
+    interaction taxonomy? _Hint: The column `log_price` has fewer outliers than `price`, and so is easier to work with._
+
+    b. Implement a version of your proposal from (a). Briefly summarize the
+    logic behind your code.
+
+    c. Challenge: Create a version of your visualization that uses an input
+    that's not built into mosaic by default.
 
 1. [Midwestern Power Plants] Where does our electricity come from? The World
 Resources Institute compiles a
@@ -2360,7 +2411,7 @@ dataset.
     possible. It is not necessary to write all the code -- clear pseudocode and
     an explanation of the essential steps is enough.
 
-# Web Visualiation
+# Web Visualization
 
 1. [Javascript Array Manipulation] These are some exercises to prepare you for more complex array and object manipulation that you may need in more advanced D3 visualizations. You will likely find the following resources useful: [[1](https://github.com/d3/d3-array), [2](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/slice), [3](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Set), [4](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Object/keys)].
     a. Find the minimum, maximum, and mean of the following array.
