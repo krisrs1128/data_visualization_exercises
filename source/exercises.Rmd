@@ -1988,7 +1988,7 @@ Olympics. We would like to have an interactive scatterplot of `Weight` vs.
 which sports have been selected by a dropdown menu. Code for generating the
 scatterplot is provided in the function `olympics_scatter`. You will have to
 first download
-[these data](https://uwmadison.box.com/shared/static/5jmd9pku62291ek20lioevsw1c588ahx.csv)
+[these data](https://uwmadison.box.com/shared/static/rzw8h2x6dp5693gdbpgxaf2koqijo12l.csv)
 and place them in a `data` subdirectory.
 
     ```{ojs}
