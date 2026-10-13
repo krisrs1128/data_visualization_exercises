@@ -700,7 +700,8 @@ through the process of building this visualization.
 
     c. Introduce at least one other UI output. For example, print a table of the
     selected fires, interactively print summary statistics, or show a histogram
-    of fire sizes. Sketch the reactivity graph associated with your application.
+    of fire sizes. Explain how you used mosaic inputs, Param, Selection, or
+    Interactor objects, if applicable.
 
 1. [California Wildfire Alternatives] Below, we provide three approaches to
 visualizing wildfire severity in the California fires dataset.
@@ -1988,7 +1989,7 @@ Olympics. We would like to have an interactive scatterplot of `Weight` vs.
 which sports have been selected by a dropdown menu. Code for generating the
 scatterplot is provided in the function `olympics_scatter`. You will have to
 first download
-[these data](https://uwmadison.box.com/shared/static/5jmd9pku62291ek20lioevsw1c588ahx.csv)
+[these data](https://uwmadison.box.com/shared/static/rzw8h2x6dp5693gdbpgxaf2koqijo12l.csv)
 and place them in a `data` subdirectory.
 
     ```{ojs}
