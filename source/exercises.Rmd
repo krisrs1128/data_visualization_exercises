@@ -1525,10 +1525,11 @@ original `value` column.
     ```
 
 1. [Antibiotics Comparison] Below, we provide three approaches to visualizing
-species abundance over time in an antibiotics experiment. The first few rows of
+species abundance over time in an antibiotics experiment
+([data source](https://uwmadison.box.com/shared/static/5jmd9pku62291ek20lioevsw1c588ahx.csv)). The first few rows of
 the data, stored in a data frame called `df`, are shown below.
 
-    ```{r antibiotics-data, echo = FALSE}
+    ```{r antibiotics-data, echo = TRUE}
     antibiotic <- read_csv("https://uwmadison.box.com/shared/static/5jmd9pku62291ek20lioevsw1c588ahx.csv") |>
         rename(person = ind, smooth_value = svalue) |>
         dplyr::select(person, species, sample, antibiotic, time, value, smooth_value)
@@ -1985,49 +1986,46 @@ interactively visualizing athlete weight and heights in the 2012 London
 Olympics. We would like to have an interactive scatterplot of `Weight` vs.
 `Height, cm` that updates which points (athletes) are highlighted depending on
 which sports have been selected by a dropdown menu. Code for generating the
-scatterplot is provided in the function `olympics_scatter`.
+scatterplot is provided in the function `olympics_scatter`. You will have to
+first download
+[these data](https://uwmadison.box.com/shared/static/5jmd9pku62291ek20lioevsw1c588ahx.csv)
+and place them in a `data` subdirectory.
 
-     ```{r, eval = FALSE}
-     await vg.coordinator().exec([
-       vg.loadCSV("olympics", "https://uwmadison.box.com/shared/static/rzw8h2x6dp5693gdbpgxaf2koqijo12l.csv")
-     ]);
+    ```{ojs}
+    path = (p) => new URL(`data/${p}`, document.baseURI).href
 
-     // Scatterplot with highlighted points.
-     olympics_scatter = (sel) => vg.plot(
-       vg.dot(
-         vg.from("olympics"),
-         {x: "Weight", y: "Height, cm", fillOpacity: 0.5}
-       ),
-       vg.highlight({by: sel, fillOpacity: 0.05}),
-       vg.width(500),
-       vg.height(400)
-     );
+    vg = {
+        const vg = await import("https://cdn.jsdelivr.net/npm/@uwdata/vgplot@0.19.0/+esm");
+        const wasm = await vg.wasmConnector();
+        vg.coordinator().databaseConnector(wasm);
+        await vg.coordinator().exec([
+            vg.loadCSV("olympics", path("All London 2012 athletes - ALL ATHLETES.csv")),
+        ]);
+        return vg;
+    }
+    ```
 
-     // fill this in...
-     ```
+    ```{ojs}
+    // Scatterplot with highlighted points.
+    olympics_scatter = vg.plot(
+        vg.dot(
+            vg.from("olympics"),
+            {x: "Weight", y: "Height, cm", fillOpacity: 0.5}
+        ),
+        vg.width(500),
+        vg.height(400)
+    );
+
+    olympics_scatter
+    ```
 
     a. Provide code which would allow the scatterplot to update the highlighted
     athletes depending on the currently selected sport. Your answer should
     define a `Selection` and use that to update calls to `olympics_scatter`.
 
     b. We have been asked to also print a table of the selected athletes.
-    Assume the final layout has the form,
-
-     ```{r, eval = FALSE}
-     vg.vconcat(
-       sport_menu,
-       olympics_scatter($sport),
-       vg.table({
-         from: "olympics",
-         filterBy: $sport,
-         columns: ["Name", "Country", "Sport", "Weight", "Height, cm"]
-       })
-     )
-     ```
-
-    Describe changes to your solution to (a) to meet the new requirements. Can
-    mosaic apply the same query for both the scatterplot and the table? Why or
-    why not?
+    Implement a modification to part (a) that links the table and scatterplot
+    selection. Where does your design fall within the interaction taxonomy?
 
 1. [Shiny Olympics] The code below sets up a Shiny app for interactively
 visualizing athlete weight and heights in the 2012 London Olympics. We would
